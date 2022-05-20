@@ -4,6 +4,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const token = process.env.DISCORD_TOKEN;
 const routeMessageCreate = require('./routes/messageCreate');
 const routeGuildMemberAdd = require('./routes/guildMemberAdd');
+const routeGuildCreate = require('./routes/guildCreate');
 
 client.once('ready', () => {
    console.log(`Félicitations, votre bot Discord a été correctement initialisé !`);
@@ -19,3 +20,7 @@ client.on("messageCreate", message => {
  client.on("guildMemberAdd", member => {
    routeGuildMemberAdd(member);
  });
+
+ client.on("guildCreate", guild => {
+   routeGuildCreate(guild);
+ })

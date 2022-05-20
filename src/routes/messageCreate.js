@@ -1,4 +1,5 @@
-module.exports = message => {
+// module.exports = message => 
+export function routeMessageCreate(message){
     const response = require('../controllers/pong');
     const ban = require('../controllers/ban');
 
